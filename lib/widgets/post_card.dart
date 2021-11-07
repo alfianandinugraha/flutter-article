@@ -22,11 +22,14 @@ class PostCard extends StatelessWidget {
                     post.title,
                     style: const TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight.bold
+                      fontWeight: FontWeight.bold,
+                      height: 1.35
                     ),
                   ),
                 ),
-                Text(post.body),
+                Text(post.body, style: const TextStyle(
+                  height: 1.35
+                )),
               ],
             ),
           )

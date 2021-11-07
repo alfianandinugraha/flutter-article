@@ -24,7 +24,7 @@ class PostItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text("#${post.id}",style: const TextStyle(fontSize: 12, color: Colors.blue)),
-              Text(post.title)
+              Text(post.title, style: const TextStyle(height: 1.35))
             ],
           ),
         ),
