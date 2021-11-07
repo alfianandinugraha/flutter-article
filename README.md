@@ -1,4 +1,4 @@
-# fluttboiler
+# flutter_article
 
 A new Flutter project.
 

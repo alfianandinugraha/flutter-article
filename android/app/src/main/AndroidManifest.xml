@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.fluttboiler">
+    package="com.example.flutter_article">
    <application
-        android:label="fluttboiler"
+        android:label="flutter_article"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

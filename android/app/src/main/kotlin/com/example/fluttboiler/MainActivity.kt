@@ -1,4 +1,4 @@
-package com.example.fluttboiler
+package com.example.flutter_article
 
 import io.flutter.embedding.android.FlutterActivity
 
