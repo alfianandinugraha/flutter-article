@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_article/models/post.dart';
+import 'package:flutter_article/widgets/loading.dart';
 import 'package:http/http.dart' as http;
 
 class ListPost extends StatefulWidget {
@@ -37,8 +39,8 @@ class _ListPostState extends State<ListPost> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: const [Text("Hello !")],
+    return isFetching ? const Loading() : Row(
+      children: const [Text("Result")],
     );
   }
 }
