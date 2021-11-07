@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_article/models/post.dart';
+import 'package:flutter_article/pages/post_page.dart';
 
 class PostItem extends StatelessWidget {
   final Post post;
@@ -8,14 +9,24 @@ class PostItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text("#${post.id}",style: const TextStyle(fontSize: 12, color: Colors.blue)),
-            Text(post.title)
-          ],
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => PostPage()
+            )
+          );
+        },
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text("#${post.id}",style: const TextStyle(fontSize: 12, color: Colors.blue)),
+              Text(post.title)
+            ],
+          ),
         ),
       )
     );
