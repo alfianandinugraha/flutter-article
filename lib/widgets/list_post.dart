@@ -40,10 +40,8 @@ class _ListPostState extends State<ListPost> {
 
   @override
   Widget build(BuildContext context) {
-    return isFetching ? const Loading() : SingleChildScrollView(
-      child: Column(
-        children: posts.map((e) => PostItem(post: e)).toList(),
-      )
+    return isFetching ? const Loading() : ListView(
+      children: posts.map((e) => PostItem(post: e)).toList(),
     );
   }
 }
