@@ -1,6 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_article/layouts/page_layout.dart';
 import 'package:flutter_article/models/post.dart';
+import 'package:flutter_article/widgets/loading.dart';
+import 'package:flutter_article/widgets/post_card.dart';
+import 'package:http/http.dart' as http;
 
 class PostPage extends StatefulWidget {
   final int id;
@@ -11,46 +16,30 @@ class PostPage extends StatefulWidget {
 }
 
 class _PostPageState extends State<PostPage> {
-  bool isLoading = true;
-  Post? post;
+  bool isFetching = true;
+  late Post post;
+
+  void getPost() async {
+    Uri uri = Uri.parse("https://jsonplaceholder.typicode.com/posts/${widget.id}");
+    var response = await http.get(uri);
+    var body = json.decode(response.body) as Map<String, dynamic>;
+
+    setState(() {
+      post = Post(id: body['id'], body: body['body'], title: body['title'], userId: body['userId']);
+      isFetching = false;
+    });
+  }
 
   @override
   void initState() {
     super.initState();
-    print(widget.id);
+    getPost();
   }
 
   @override
   Widget build(BuildContext context) {
     return PageLayout(
-      child: Column(
-        children: [
-          Card(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const Text("#1",style: TextStyle(fontSize: 12, color: Colors.blue)),
-                  Container(
-                    margin: const EdgeInsets.only(top: 8, bottom: 8),
-                    child: const Text(
-                      "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold
-                      ),
-                    ),
-                  ),
-                  const Text(
-                    "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto"
-                  ),
-                ],
-              ),
-            )
-          )
-        ],
-      )
+      child: isFetching ? const Loading() : PostCard(post: post)
     );
   }
 }
