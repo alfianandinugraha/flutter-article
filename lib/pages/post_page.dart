@@ -1,8 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_article/layouts/page_layout.dart';
+import 'package:flutter_article/models/post.dart';
 
-class PostPage extends StatelessWidget {
-  const PostPage({Key? key}) : super(key: key);
+class PostPage extends StatefulWidget {
+  final int id;
+  const PostPage({Key? key, required this.id}) : super(key: key);
+
+  @override
+  _PostPageState createState() => _PostPageState();
+}
+
+class _PostPageState extends State<PostPage> {
+  bool isLoading = true;
+  Post? post;
+
+  @override
+  void initState() {
+    super.initState();
+    print(widget.id);
+  }
 
   @override
   Widget build(BuildContext context) {

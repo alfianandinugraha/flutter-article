@@ -14,7 +14,7 @@ class PostItem extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => PostPage()
+              builder: (context) => PostPage(id: post.id)
             )
           );
         },
