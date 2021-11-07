@@ -1,6 +1,8 @@
 # flutter_article
 
-A new Flutter project.
+Example Flutter App with fetch api from [https://jsonplaceholder.typicode.com/](https://jsonplaceholder.typicode.com/) with [http](https://pub.dev/packages/http)
+
+![Demo app](https://res.cloudinary.com/alfianandinugraha/image/upload/v1636304368/flutter_article_alahc5.gif)
 
 ## Getting Started
 
