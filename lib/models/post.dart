@@ -1,8 +1,8 @@
 class Post {
-  int? id;
-  int? userId;
-  String? title;
-  String? body;
+  int id;
+  int userId;
+  String title;
+  String body;
 
-  Post({this.id, this.body, this.title, this.userId});
+  Post({required this.id, required  this.body, required  this.title, required  this.userId});
 }
